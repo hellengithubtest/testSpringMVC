@@ -1,28 +1,31 @@
 package main.java.app;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 
 @Controller
 public class MyController {
     ScheduledTask task = new ScheduledTask();
-/*    @RequestMapping(value = "/", method = RequestMethod.GET)public String printHome(ModelMap model) {
+    @GetMapping("/")
+        public ModelAndView printHome(ModelMap model) {
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(task, 0, 1000);
-        model.addAttribute("message", "Hello Home");
-        return "index";
-    }*/
+        model.addAttribute("fname", task.getText());
+        return new ModelAndView("index", model);
+    }
 
-    @GetMapping("/")
-        public String outValue(@RequestParam(name="fname", required=false, defaultValue = "test") String fname, Model model) {
-        model.addAttribute("name", fname);
-        System.out.println("Request mapping");
+    @RequestMapping(value= "/", method = RequestMethod.POST)
+        public String outValue(@ModelAttribute("fname") String fname, BindingResult result, Model model) {
         System.out.println(fname);
         task.setText(fname);
         return "index";
