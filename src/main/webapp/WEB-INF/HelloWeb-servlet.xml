@@ -15,7 +15,6 @@
     </bean>
 
     <bean name="myBean" class="com.company.app.beans.MyBean">
-        <property name ="text" value="hello world"></property>
     </bean>
 
 </beans>

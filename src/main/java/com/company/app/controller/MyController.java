@@ -18,8 +18,6 @@ public class MyController {
     public MyController(ScheduledTask task, MyBean bean) {
         this.task = task;
         this.bean = bean;
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(task, 0, 1000);
     }
 
     @GetMapping("/")

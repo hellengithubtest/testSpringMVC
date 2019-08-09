@@ -3,6 +3,7 @@ package com.company.app.service;
 import com.company.app.beans.MyBean;
 import org.springframework.stereotype.Service;
 
+import java.util.Timer;
 import java.util.TimerTask;
 
 @Service
@@ -12,6 +13,8 @@ public class ScheduledTask extends TimerTask {
     public ScheduledTask(MyBean myBean) {
 
         this.myBean = myBean;
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(this, 0, 1000);
 
     }
 
