@@ -1,9 +1,9 @@
 package com.company.app.service;
 
 import com.company.app.beans.MyBean;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.util.Timer;
 import java.util.TimerTask;
 
 @Service
@@ -11,11 +11,7 @@ public class ScheduledTask extends TimerTask {
     private MyBean myBean;
 
     public ScheduledTask(MyBean myBean) {
-
         this.myBean = myBean;
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(this, 0, 1000);
-
     }
 
     public void changeText(String text) {
@@ -26,6 +22,7 @@ public class ScheduledTask extends TimerTask {
         return myBean.getText();
     }
 
+    @Scheduled(fixedDelay = 1000)
     public void run() {
         System.out.println(myBean.getText());
     }
