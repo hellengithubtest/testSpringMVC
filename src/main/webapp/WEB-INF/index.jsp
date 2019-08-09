@@ -1,5 +1,7 @@
 <html>
 <body>
-     <input type="name" id="fname" name="fname" value= "${fname}">
+<form action="./" method="post">
+    <input type="text" id="fname" name="fname" value= "${fname}">
+</form>
 </body>
 </html>
