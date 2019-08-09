@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class MyController {
-    @Autowired
+
     private ScheduledTask task;
-    @Autowired
     private MyBean bean;
 
-/*    public MyController(ScheduledTask task, MyBean bean) {
+    @Autowired
+    public MyController(ScheduledTask task, MyBean bean) {
         this.task = task;
         this.bean = bean;
-    }*/
+    }
 
     @GetMapping("/")
     public ModelAndView printHome(ModelMap model) {
