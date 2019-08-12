@@ -9,8 +9,5 @@ public class App {
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
-/*        SpringApplication application = new SpringApplication(DeviceConnectionProvider.class);
-        application.setWebApplicationType(WebApplicationType.SERVLET);
-        application.run(args);*/
     }
 }
