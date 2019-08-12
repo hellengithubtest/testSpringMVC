@@ -2,21 +2,25 @@ package com.company.app.controller;
 
 import com.company.app.beans.MyBean;
 import com.company.app.service.ScheduledTask;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
-@Controller
+@RestController
 public class MyController {
 
-    private ScheduledTask task;
     private MyBean bean;
+    private ScheduledTask task;
 
-    @Autowired
-    public MyController(ScheduledTask task, MyBean bean) {
+
+    public MyController( MyBean bean, ScheduledTask task) {
         this.task = task;
         this.bean = bean;
     }
@@ -32,5 +36,4 @@ public class MyController {
         task.changeText(request.getParameter("fname"));
         return "redirect:/";
     }
-
 }
