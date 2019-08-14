@@ -2,11 +2,13 @@ package com.company.app.service;
 
 import com.company.app.beans.MyBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
+@EnableScheduling
 @Component
 public class ScheduledTask {
     private MyBean myBean;
